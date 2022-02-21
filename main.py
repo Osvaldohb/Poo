@@ -2,29 +2,16 @@
 from datetime import date
 import datetime
 from random import randint
-from tkinter import N
 
 
-class Person:
-    def __init__(self, name, curp, lastnameP,lastnameM, age, weight, height,state,fecha,sexo):
-        self.name=name
-        self.curp=curp
-        self.lastnameP=lastnameP
-        self.lastnameM=lastnameM
-        self.age=age
-        self.weight= weight
-        self.height=height
-        self.state=state
-        self.fecha=fecha
-        self.sexo=sexo
-      
+class Person:   
     def lel(self):
-        curpNew=self.lastnameP[0:2]+self.lastnameM[0:1]+self.name[0:1]+self.fecha[8:11]+self.fecha[3:5]+self.fecha[0:2]+self.sexo[0:1]+self.state[0:2]
-        print ("CURP: ", curpNew)
+        curpNew= self.lastnameP[0:2] + self.lastnameM[0:1]+self.name[0:1]+self.fecha[8:11]+self.fecha[3:5]+self.fecha[0:2]+self.sexo[0:1]+self.state[0:2]
         self.curp=curpNew
-
+   
     def get_name(self):
      return self.name 
+    
     def set_name(self,x):
       self.name=x
       
@@ -75,30 +62,29 @@ class Person:
                   
         
                    
+padre=Person()
+padre.set_name("OSVALDO")
+padre.set_curp("SAJO030305HHGNMSA1")
+padre.set_lastnameP("SANTILLAN")
+padre.set_lastnameM("JIMENEZ")
+padre.set_age(19)
+padre.set_weight(74)
+padre.set_height(1.80)
+padre.set_state("HG")
+padre.set_fecha("05/03/2003")
+padre.set_sexo("H")
 
-padre=Person
-padre.set_name(padre,"OSVALDO")
-padre.set_curp(padre,"SAJO030305HHGNMSA1")
-padre.set_lastnameP(padre,"SANTILLAN")
-padre.set_lastnameM(padre,"JIMENEZ")
-padre.set_age(padre,19)
-padre.set_weight(padre,74)
-padre.set_height(padre,1.80)
-padre.set_state(padre,"HG")
-padre.set_fecha(padre,"05/03/2003")
-padre.set_sexo(padre,"H")
-
-madre=Person
-madre.set_name(madre, "MARIA")
-madre.set_curp(madre,"SAJO030305HHGNMSA1")
-madre.set_lastnameP(madre,"PEREZ")
-madre.set_lastnameM(madre,"GONZALES")
-madre.set_age(madre,18)
-madre.set_weight(madre,58)
-madre.set_height(madre,1.70)
-madre.set_state(madre,"HG")
-madre.set_fecha(madre,"05/10/2003")
-madre.set_sexo(madre,"M")
+madre=Person()
+madre.set_name("MARIA")
+madre.set_curp("PEGM031005HHGJKH2")
+madre.set_lastnameP("PEREZ")
+madre.set_lastnameM("GONZALES")
+madre.set_age(18)
+madre.set_weight(58)
+madre.set_height(1.70)
+madre.set_state("HG")
+madre.set_fecha("05/10/2003")
+madre.set_sexo("M")
 
 
 
@@ -132,24 +118,34 @@ elif(n==4):
     estadoN="MC"
 elif(n==4):
     estadoN="DF"
+elif(n<=0 | n>=5):
+    print ("ERROR!!!!!!!!")
 
     
-sexo=input("Ingresa el sexo H/M: ")
+s=int(input("\n Digite en numero correspondiente al sexo del niño: \n 1.- HOMBRE\n 2.- MUJER \n"))
+if(s==1):
+    sexo="H"
+elif (s==2):
+    sexo="M"
+elif (s<=0 | s>=3):
+    print("ERROR!!!!!!")
 
-hijo=Person
-hijo.set_name(hijo,nom)
-hijo.set_curp(hijo," ")
-hijo.set_lastnameP(padre,padre.get_lastnameP(padre))
-hijo.set_lastnameM(madre,madre.get_lastnameM(madre))
-hijo.set_age(hijo,años)
-hijo.set_weight(hijo,peso)
-hijo.set_height(hijo,altura)
-hijo.set_state(hijo,estadoN)
-hijo.set_fecha(hijo,fecha1)
-hijo.set_sexo(hijo,sexo)
+hijo=Person()
+hijo.set_name(nom)
+hijo.set_curp(" ")
+hijo.set_lastnameP(padre.get_lastnameP())
+hijo.set_lastnameM(madre.get_lastnameM())
+hijo.set_age(años)
+hijo.set_weight(peso)
+hijo.set_height(altura)
+hijo.set_state(estadoN)
+hijo.set_fecha(fecha1)
+hijo.set_sexo(sexo)
 
+hijo.lel()
 
-hijo.lel(hijo)
+print ("\n\n\nLos datos del su hijo son: ")
+print("\n Nombre:",hijo.get_name(),"\n Apellido Paterno:",hijo.get_lastnameP()," \n Apellido Materno:",hijo.get_lastnameM(),"\n Edad:" ,hijo.get_age(),"\n Peso:",hijo.get_weight(),"\n Altura:",hijo.get_height(),"\n Estado de Nacimiento:",hijo.get_state(),"\n Fecha de Nacimiento: ",hijo.get_fecha(),"\n Sexo:",hijo.get_sexo(), "\n Curp:",hijo.get_curp())
 
 
 #Prueba de envio de datos por git     
